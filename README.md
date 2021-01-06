@@ -1,32 +1,32 @@
-## ethjs-account
+## vapjs-account
 
 <div>
   <!-- Dependency Status -->
-  <a href="https://david-dm.org/ethjs/ethjs-account">
-    <img src="https://david-dm.org/ethjs/ethjs-account.svg"
+  <a href="https://david-dm.org/vapjs/vapjs-account">
+    <img src="https://david-dm.org/vapjs/vapjs-account.svg"
     alt="Dependency Status" />
   </a>
 
   <!-- devDependency Status -->
-  <a href="https://david-dm.org/ethjs/ethjs-account#info=devDependencies">
-    <img src="https://david-dm.org/ethjs/ethjs-account/dev-status.svg" alt="devDependency Status" />
+  <a href="https://david-dm.org/vapjs/vapjs-account#info=devDependencies">
+    <img src="https://david-dm.org/vapjs/vapjs-account/dev-status.svg" alt="devDependency Status" />
   </a>
 
   <!-- Build Status -->
-  <a href="https://travis-ci.org/ethjs/ethjs-account">
-    <img src="https://travis-ci.org/ethjs/ethjs-account.svg"
+  <a href="https://travis-ci.org/vapjs/vapjs-account">
+    <img src="https://travis-ci.org/vapjs/vapjs-account.svg"
     alt="Build Status" />
   </a>
 
   <!-- NPM Version -->
-  <a href="https://www.npmjs.org/package/ethjs-account">
-    <img src="http://img.shields.io/npm/v/ethjs-account.svg"
+  <a href="https://www.npmjs.org/package/vapjs-account">
+    <img src="http://img.shields.io/npm/v/vapjs-account.svg"
     alt="NPM version" />
   </a>
 
   <!-- Test Coverage -->
-  <a href="https://coveralls.io/r/ethjs/ethjs-account">
-    <img src="https://coveralls.io/repos/github/ethjs/ethjs-account/badge.svg" alt="Test Coverage" />
+  <a href="https://coveralls.io/r/vapjs/vapjs-account">
+    <img src="https://coveralls.io/repos/github/vapjs/vapjs-account/badge.svg" alt="Test Coverage" />
   </a>
 
   <!-- Javascript Style -->
@@ -37,20 +37,20 @@
 
 <br />
 
-A simple Ethereum account utility module.
+A simple Vapory account utility module.
 
 Warning: if using with React Native, please use a pre-build distribution (i.e. npm run buld -> /dist/..). We will be switching to the Sepcc256k1 module which should resolve this issue.
 
 ## Install
 
 ```
-npm install --save ethjs-account
+npm install --save vapjs-account
 ```
 
 ## Usage
 
 ```js
-const generate = require('ethjs-account').generate;
+const generate = require('vapjs-account').generate;
 
 console.log(generate('892h@fsdf11ks8sk^2h8s8shfs.jk39hsoi@hohskd'));
 
@@ -67,9 +67,9 @@ Note, the address exported is the mix case checksum.
 
 ## About
 
-This module is meant to aid in the management and generation of Ethereum account keys. It is still pending review. Entropy generation is handled by a combination of sha3 hashing, crypto random bytes and provided entropy salt. It is up the developer to ensure good entropy is generated for the accounts.
+This module is meant to aid in the management and generation of Vapory account keys. It is still pending review. Entropy generation is handled by a combination of sha3 hashing, crypto random bytes and provided entropy salt. It is up the developer to ensure good entropy is generated for the accounts.
 
-This module contains methods to convert private keys into Buffer public keys, and Buffer public keys into Ethereum addresses. The sha3 method is exposed as it is needed for key generation.
+This module contains methods to convert private keys into Buffer public keys, and Buffer public keys into Vapory addresses. The sha3 method is exposed as it is needed for key generation.
 
 See the `user-guide` for more details on good entropy generation, and other module information.
 
@@ -87,36 +87,36 @@ privateToAccount     <Function (String) : (Object)>
 
 ## Contributing
 
-Please help better the ecosystem by submitting issues and pull requests to `ethjs-account`. We need all the help we can get to build the absolute best linting standards and utilities. We follow the AirBNB linting standard and the unix philosophy.
+Please help better the ecosystem by submitting issues and pull requests to `vapjs-account`. We need all the help we can get to build the absolute best linting standards and utilities. We follow the AirBNB linting standard and the unix philosophy.
 
 ## Guides
 
-You'll find more detailed information on using `ethjs-account` and tailoring it to your needs in our guides:
+You'll find more detailed information on using `vapjs-account` and tailoring it to your needs in our guides:
 
 - [User guide](docs/user-guide.md) - Usage, configuration, FAQ and complementary tools.
-- [Developer guide](docs/developer-guide.md) - Contributing to `ethjs-account` and writing your own code and coverage.
+- [Developer guide](docs/developer-guide.md) - Contributing to `vapjs-account` and writing your own code and coverage.
 
 ## Help out
 
 There is always a lot of work to do, and will have many rules to maintain. So please help out in any way that you can:
 
-- Create, enhance, and debug ethjs rules (see our guide to ["Working on rules"](./github/CONTRIBUTING.md)).
+- Create, enhance, and debug vapjs rules (see our guide to ["Working on rules"](./github/CONTRIBUTING.md)).
 - Improve documentation.
 - Chime in on any open issue or pull request.
-- Open new issues about your ideas for making `ethjs-account` better, and pull requests to show us how your idea works.
+- Open new issues about your ideas for making `vapjs-account` better, and pull requests to show us how your idea works.
 - Add new tests to *absolutely anything*.
 - Create or contribute to ecosystem tools.
 - Spread the word!
 
 Please consult our [Code of Conduct](CODE_OF_CONDUCT.md) docs before helping out.
 
-We communicate via [issues](https://github.com/ethjs/ethjs-account/issues) and [pull requests](https://github.com/ethjs/ethjs-account/pulls).
+We communicate via [issues](https://github.com/vapjs/vapjs-account/issues) and [pull requests](https://github.com/vapjs/vapjs-account/pulls).
 
 ## Important documents
 
 - [Changelog](CHANGELOG.md)
 - [Code of Conduct](CODE_OF_CONDUCT.md)
-- [License](https://raw.githubusercontent.com/ethjs/ethjs-account/master/LICENSE)
+- [License](https://raw.githubusercontent.com/vapjs/vapjs-account/master/LICENSE)
 
 ## Licence
 

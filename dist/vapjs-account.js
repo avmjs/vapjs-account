@@ -4,11 +4,11 @@
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory();
 	else if(typeof define === 'function' && define.amd)
-		define("ethAccount", [], factory);
+		define("vapAccount", [], factory);
 	else if(typeof exports === 'object')
-		exports["ethAccount"] = factory();
+		exports["vapAccount"] = factory();
 	else
-		root["ethAccount"] = factory();
+		root["vapAccount"] = factory();
 })(this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -5673,7 +5673,7 @@ function sha3(dataInput, toBuffer) {
   if (typeof data === 'string') {
     data = new Buffer(data, 'utf8');
   } else if (!Buffer.isBuffer(data)) {
-    throw new Error('[ethjs-sha3] data input must be type \'String\' or Buffer \'Object\' instance got ' + typeof dataInput + ', if your trying to hash a BigNumber or BN object, convert it to a string by using \'value.toString(10)\'.');
+    throw new Error('[vapjs-sha3] data input must be type \'String\' or Buffer \'Object\' instance got ' + typeof dataInput + ', if your trying to hash a BigNumber or BN object, convert it to a string by using \'value.toString(10)\'.');
   }
 
   if (toBuffer === true) {
@@ -5713,7 +5713,7 @@ function getAddress(addressInput) {
   var result = null; // eslint-disable-line
 
   if (typeof address !== 'string') {
-    throw new Error('[ethjs-account] invalid address value ' + JSON.stringify(address) + ' not a valid hex string');
+    throw new Error('[vapjs-account] invalid address value ' + JSON.stringify(address) + ' not a valid hex string');
   }
 
   // Missing the 0x prefix
@@ -5726,12 +5726,12 @@ function getAddress(addressInput) {
 
     // It is a checksummed address with a bad checksum
     if (address.match(/([A-F].*[a-f])|([a-f].*[A-F])/) && result !== address) {
-      throw new Error('[ethjs-account] invalid address checksum');
+      throw new Error('[vapjs-account] invalid address checksum');
     }
 
     // Maybe ICAP? (we only support direct mode)
   } else if (address.match(/^XE[0-9]{2}[0-9A-Za-z]{30,31}$/)) {
-    throw new Error('[ethjs-account] ICAP and IBAN addresses, not supported yet..');
+    throw new Error('[vapjs-account] ICAP and IBAN addresses, not supported yet..');
 
     /*
     // It is an ICAP address with a bad checksum
@@ -5743,7 +5743,7 @@ function getAddress(addressInput) {
     result = getChecksumAddress('0x' + result);
     */
   } else {
-    throw new Error('[ethjs-account] invalid address value ' + JSON.stringify(address) + ' not a valid hex string');
+    throw new Error('[vapjs-account] invalid address value ' + JSON.stringify(address) + ' not a valid hex string');
   }
 
   return result;
@@ -5759,10 +5759,10 @@ function getAddress(addressInput) {
 
 function privateToPublic(privateKey) {
   if (typeof privateKey !== 'string') {
-    throw new Error('[ethjs-account] private key must be type String, got ' + typeof privateKey);
+    throw new Error('[vapjs-account] private key must be type String, got ' + typeof privateKey);
   }
   if (!privateKey.match(/^(0x)?[0-9a-fA-F]{64}$/)) {
-    throw new Error('[ethjs-account] private key must be an alphanumeric hex string that is 32 bytes long.');
+    throw new Error('[vapjs-account] private key must be an alphanumeric hex string that is 32 bytes long.');
   }
 
   var privateKeyBuffer = new Buffer(stripHexPrefix(privateKey), 'hex');
@@ -5770,27 +5770,27 @@ function privateToPublic(privateKey) {
 }
 
 /**
- * Returns the Ethereum standard address of a public sepk key.
+ * Returns the Vapory standard address of a public sepk key.
  *
  * @method publicToAddress
  * @param {Object} publicKey a single public key Buffer object
- * @returns {String} address the 20 byte Ethereum address
+ * @returns {String} address the 20 byte Vapory address
  */
 
 function publicToAddress(publicKey) {
   if (!Buffer.isBuffer(publicKey)) {
-    throw new Error('[ethjs-account] public key must be a buffer object in order to get public key address');
+    throw new Error('[vapjs-account] public key must be a buffer object in order to get public key address');
   }
 
   return getAddress(sha3(publicKey, true).slice(12).toString('hex'));
 }
 
 /**
- * Returns an Ethereum account address, private and public key based on the public key.
+ * Returns an Vapory account address, private and public key based on the public key.
  *
  * @method privateToAccount
  * @param {String} privateKey a single string of entropy longer than 32 chars
- * @returns {Object} output the Ethereum account address, and keys as hex strings
+ * @returns {Object} output the Vapory account address, and keys as hex strings
  */
 
 function privateToAccount(privateKey) {
@@ -5804,19 +5804,19 @@ function privateToAccount(privateKey) {
 }
 
 /**
- * Create a single Ethereum account address, private and public key.
+ * Create a single Vapory account address, private and public key.
  *
  * @method generate
  * @param {String} entropy a single string of entropy longer than 32 chars
- * @returns {Object} output the Ethereum account address, and keys
+ * @returns {Object} output the Vapory account address, and keys
  */
 
 function generate(entropy) {
   if (typeof entropy !== 'string') {
-    throw new Error('[ethjs-account] while generating account, invalid input type: \'' + typeof entropy + '\' should be type \'String\'.');
+    throw new Error('[vapjs-account] while generating account, invalid input type: \'' + typeof entropy + '\' should be type \'String\'.');
   }
   if (entropy.length < 32) {
-    throw new Error('[ethjs-account] while generating account, entropy value not random and long enough, should be at least 32 characters of random information, is only ' + entropy.length);
+    throw new Error('[vapjs-account] while generating account, entropy value not random and long enough, should be at least 32 characters of random information, is only ' + entropy.length);
   }
 
   return privateToAccount(sha3('' + randomhex(16) + sha3('' + randomhex(32) + entropy) + randomhex(32)));
@@ -5857,7 +5857,7 @@ module.exports = function getChecksumAddress(addressInput) {
   var address = addressInput; // eslint-disable-line
 
   if (typeof address !== 'string' || !address.match(/^0x[0-9A-Fa-f]{40}$/)) {
-    throw new Error('[ethjs-account] invalid address value ' + JSON.stringify(address) + ' not a valid hex string');
+    throw new Error('[vapjs-account] invalid address value ' + JSON.stringify(address) + ' not a valid hex string');
   }
 
   address = address.substring(2).toLowerCase();
@@ -11384,7 +11384,7 @@ module.exports = {
 				"spec": "6.3.2",
 				"type": "version"
 			},
-			"/home/nick/github/ethjs-account"
+			"/home/nick/github/vapjs-account"
 		]
 	],
 	"_from": "elliptic@6.3.2",
@@ -11421,7 +11421,7 @@ module.exports = {
 	"_shasum": "e4c81e0829cf0a65ab70e998b8232723b5c1bc48",
 	"_shrinkwrap": null,
 	"_spec": "elliptic@6.3.2",
-	"_where": "/home/nick/github/ethjs-account",
+	"_where": "/home/nick/github/vapjs-account",
 	"author": {
 		"name": "Fedor Indutny",
 		"email": "fedor@indutny.com"
@@ -11663,4 +11663,4 @@ module.exports = __webpack_require__(7);
 /******/ ])
 });
 ;
-//# sourceMappingURL=ethjs-account.js.map
+//# sourceMappingURL=vapjs-account.js.map

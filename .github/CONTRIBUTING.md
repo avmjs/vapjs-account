@@ -1,6 +1,6 @@
-# Contributing to ethjs-sha3
+# Contributing to vapjs-sha3
 
-Love ethjs-sha3 and want to help? Thanks so much, there's something to do for everybody!
+Love vapjs-sha3 and want to help? Thanks so much, there's something to do for everybody!
 
 Please take a moment to review this document in order to make the contribution process easy and effective for everyone involved.
 
@@ -8,7 +8,7 @@ Following these guidelines helps to communicate that you respect the time of the
 
 ## Using the issue tracker
 
-The [issue tracker](https://github.com/ethjs/ethjs-sha3/issues) is
+The [issue tracker](https://github.com/vapjs/vapjs-sha3/issues) is
 the preferred channel for [bug reports](#bugs), [features requests](#features)
 and [submitting pull requests](#pull-requests).
 
@@ -80,7 +80,7 @@ included in the project:
    # Navigate to the newly cloned directory
    cd default
    # Assign the original repo to a remote called "upstream"
-   git remote add upstream https://github.com/ethjs/ethjs-sha3.git
+   git remote add upstream https://github.com/vapjs/vapjs-sha3.git
    ```
 
 2. If you cloned a while ago, get the latest changes from upstream:

@@ -1,8 +1,8 @@
 var webpack = require('webpack'); // eslint-disable-line
 
 var env = process.env.NODE_ENV;   // eslint-disable-line
-var filename = 'ethjs-account';      // eslint-disable-line
-var library = 'ethAccount';          // eslint-disable-line
+var filename = 'vapjs-account';      // eslint-disable-line
+var library = 'vapAccount';          // eslint-disable-line
 var config = {                    // eslint-disable-line
   entry: [
     './lib/index.js',

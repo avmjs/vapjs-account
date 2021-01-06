@@ -1,7 +1,7 @@
 {
-  "name": "ethjs-account",
+  "name": "vapjs-account",
   "version": "0.1.4",
-  "description": "A simple Ethereum account utility module.",
+  "description": "A simple Vapory account utility module.",
   "main": "lib/index.js",
   "files": [
     "dist",
@@ -33,14 +33,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/ethjs/ethjs-account.git"
+    "url": "git+ssh://git@github.com/vapjs/vapjs-account.git"
   },
   "keywords": [
-    "ethereum",
+    "vapory",
     "rpc",
     "formatter",
     "format",
-    "ethereum",
+    "vapory",
     "encoding",
     "decoding"
   ],
@@ -60,9 +60,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ethjs/ethjs-account/issues"
+    "url": "https://github.com/vapjs/vapjs-account/issues"
   },
-  "homepage": "https://github.com/ethjs/ethjs-account#readme",
+  "homepage": "https://github.com/vapjs/vapjs-account#readme",
   "babel": {
     "plugins": [
       [
@@ -131,7 +131,7 @@
   },
   "dependencies": {
     "elliptic": "6.3.2",
-    "ethjs-sha3": "0.1.2",
+    "vapjs-sha3": "0.1.2",
     "randomhex": "0.1.5",
     "strip-hex-prefix": "^1.0.0"
   },
@@ -140,7 +140,7 @@
     "babel-core": "6.18.2",
     "babel-eslint": "7.1.0",
     "babel-loader": "6.2.8",
-    "ethereumjs-util": "5.0.1",
+    "vaporyjs-util": "5.0.1",
     "sandboxed-module": "2.0.3",
     "babel-plugin-check-es2015-constants": "6.8.0",
     "babel-plugin-transform-es2015-arrow-functions": "6.8.0",

@@ -1,5 +1,5 @@
 const assert = require('chai').assert;
-const sha3 = require('ethjs-sha3');
+const sha3 = require('vapjs-sha3');
 const generate = require('../index.js').generate;
 const getAddress = require('../index.js').getAddress;
 const getChecksumAddress = require('../index.js').getChecksumAddress;
@@ -7,7 +7,7 @@ const privateToAccount = require('../index.js').privateToAccount;
 const privateToPublic = require('../index.js').privateToPublic;
 const publicToAddress = require('../index.js').publicToAddress;
 const crypto = require('crypto');
-const ethUtil = require('ethereumjs-util');
+const vapUtil = require('vaporyjs-util');
 const SandboxedModule = require('sandboxed-module');
 
 SandboxedModule.registerBuiltInSourceTransformer('istanbul');
@@ -18,22 +18,22 @@ const invalidGetAddress = SandboxedModule.require('../index.js', {
   singleOnly: true,
 }).getAddress;
 
-describe('ethjs-account', () => {
+describe('vapjs-account', () => {
   describe('privateToAccount', () => {
     it('should construct properly', () => {
       assert.equal(typeof privateToAccount, 'function');
     });
 
-    it('should be the same as ethereumjs-util', () => {
+    it('should be the same as vaporyjs-util', () => {
       const privateKey = '0xccb36826fbd5192c10bba496af42906a7e3b91f87a0ae803e79113fa88c5432c';
       const accountTest = privateToAccount(privateKey);
       const publicKey = new Buffer(accountTest.publicKey.slice(2), 'hex');
       const address = accountTest.address.toLowerCase();
 
       assert.deepEqual(publicKey, privateToPublic(privateKey));
-      assert.equal(address.toLowerCase(), `0x${ethUtil.privateToAddress(new Buffer(privateKey.slice(2), 'hex')).toString('hex')}`);
-      assert.deepEqual(publicKey, ethUtil.privateToPublic(new Buffer(privateKey.slice(2), 'hex')));
-      assert.equal(publicToAddress(publicKey).toLowerCase(), `0x${ethUtil.publicToAddress(accountTest.publicKey, true).toString('hex')}`);
+      assert.equal(address.toLowerCase(), `0x${vapUtil.privateToAddress(new Buffer(privateKey.slice(2), 'hex')).toString('hex')}`);
+      assert.deepEqual(publicKey, vapUtil.privateToPublic(new Buffer(privateKey.slice(2), 'hex')));
+      assert.equal(publicToAddress(publicKey).toLowerCase(), `0x${vapUtil.publicToAddress(accountTest.publicKey, true).toString('hex')}`);
     });
 
     it('should throw under invalid conditions', () => {
@@ -87,11 +87,11 @@ describe('ethjs-account', () => {
       assert.equal(typeof publicToAddress(privateToPublic(sha3('jksfksf'))), 'string');
     });
 
-    it('should be the same as ethereumjs-util', () => {
+    it('should be the same as vaporyjs-util', () => {
       const accountTest = privateToAccount(sha3('kjsdfkjfkjsf'));
       const publicKey = new Buffer(accountTest.publicKey.slice(2), 'hex');
 
-      assert.equal(publicToAddress(publicKey).toLowerCase(), `0x${ethUtil.publicToAddress(accountTest.publicKey, true).toString('hex')}`);
+      assert.equal(publicToAddress(publicKey).toLowerCase(), `0x${vapUtil.publicToAddress(accountTest.publicKey, true).toString('hex')}`);
     });
 
     it('should throw under invalid conditions', () => {
@@ -168,11 +168,11 @@ describe('ethjs-account', () => {
   }
 
   describe('test checkSum address, and getAddress', () => {
-    it('ethers getAddress should equal official toChecksumAddress', () => {
+    it('vapors getAddress should equal official toChecksumAddress', () => {
       function testAddress(address) {
-        const official = ethUtil.toChecksumAddress(address);
-        const ethers = getAddress(address);
-        assert.equal(ethers, official, 'wrong address');
+        const official = vapUtil.toChecksumAddress(address);
+        const vapors = getAddress(address);
+        assert.equal(vapors, official, 'wrong address');
       }
 
       testAddress('0x0000000000000000000000000000000000000000');
