@@ -132,7 +132,7 @@
   },
   "dependencies": {
     "elliptic": "6.3.2",
-    "vapjs-sha3": "0.1.2",
+    "js-sha3": "0.1.2",
     "randomhex": "0.1.5",
     "strip-hex-prefix": "^1.0.0"
   },
