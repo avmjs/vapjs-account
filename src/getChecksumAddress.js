@@ -1,5 +1,5 @@
 const elliptic = require('elliptic');
-const sha3 = require('vapjs-sha3');
+const sha3 = require('ethjs-sha3');
 const secp256k1 = new (elliptic.ec)('secp256k1'); // eslint-disable-line
 
 /**

@@ -132,8 +132,8 @@
   },
   "dependencies": {
     "elliptic": "6.3.2",
-    "js-sha3": "0.1.2",
     "randomhex": "0.1.5",
+    "ethjs-sha3": "0.1.2",
     "strip-hex-prefix": "^1.0.0"
   },
   "devDependencies": {
@@ -141,7 +141,7 @@
     "babel-core": "6.18.2",
     "babel-eslint": "7.1.0",
     "babel-loader": "6.2.8",
-    "vaporyjs-util": "5.0.1",
+    "vaporyjs-util": "^5.1.5",
     "sandboxed-module": "2.0.3",
     "babel-plugin-check-es2015-constants": "6.8.0",
     "babel-plugin-transform-es2015-arrow-functions": "6.8.0",
@@ -184,7 +184,7 @@
     "lint-staged": "1.0.1",
     "mocha": "3.1.2",
     "pre-commit": "1.1.3",
-    "@vapory/web3": "0.17.0-beta"
+    "@vapory/web3": "0.20.4"
   },
   "lint-staged": {
     "lint:eslint": "*.js"

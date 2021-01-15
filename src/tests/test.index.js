@@ -1,5 +1,5 @@
 const assert = require('chai').assert;
-const sha3 = require('vapjs-sha3');
+const sha3 = require('ethjs-sha3');
 const generate = require('../index.js').generate;
 const getAddress = require('../index.js').getAddress;
 const getChecksumAddress = require('../index.js').getChecksumAddress;
